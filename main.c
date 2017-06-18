@@ -210,9 +210,9 @@ int main (int argc, char* args[])
 
 		SDL_SetRenderDrawColor(renderer, 0x12, 0x37, 0x60, 0x00);
 		SDL_RenderFillRect(renderer, NULL);			
-
+		SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0xFF, 0xFF);
 		SDL_RenderFillRect(renderer, &ball);
-		SDL_RenderCopy(renderer, img, NULL, &ball); 
+		//SDL_RenderCopy(renderer, img, NULL, &ball); 
 
         SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 		SDL_RenderFillRect(renderer, &rack);
