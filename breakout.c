@@ -110,7 +110,7 @@ int main (int argc, char* args[])
 
 	int bricks = 5;   
     unsigned int cTime = 0 , lTime = 0; 
-    int velX = 5, velY = 5;
+    int velX = 1, velY = 1;
 
     /* ALL BLOCKS DEFINITION*/ 
 
@@ -147,7 +147,7 @@ int main (int argc, char* args[])
 
 
 	    while (1){
-		    while (SDL_PollEvent(&Event) == 0);
+		    if (SDL_PollEvent(&Event) == 1){
 
 		    if (Event.type == SDL_QUIT){
 			    break;
@@ -169,8 +169,8 @@ int main (int argc, char* args[])
 	        		}
         		}
     
-        }
-
+       		}
+		}
         if (ball.x > 661 || ball.x < 1){
             
             velX = -velX;
@@ -192,9 +192,6 @@ int main (int argc, char* args[])
 
         if (bricks == 0) break;
 
-
-        ball.x += velX;
-
         for (i=2; i<7; i++){
 
             if (blocks[i].a == 1){
@@ -209,11 +206,12 @@ int main (int argc, char* args[])
 
             }
         }
-
-
-
-        ball.y += velY;
     
+
+		ball.x += velX;
+        ball.y += velY;
+		SDL_Delay(10);
+
 
 		SDL_RenderFillRect(renderer, NULL);			
    		SDL_RenderCopy(renderer, back, NULL, NULL);                       
